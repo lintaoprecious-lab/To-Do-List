@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Simple To-Do List</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- SIGN IN SCREEN -->
+  <div class="signin-screen" id="signinScreen">
+    <div class="signin-box">
+      <h1>Welcome!</h1>
+      <p>Please enter your name to continue.</p>
+
+      <input type="text" id="signinName" placeholder="Enter your name">
+
+      <button id="signinBtn">Sign In</button>
+    </div>
+  </div>
+
+  <div class="dashboard" id="dashboard" style="display: none;">
+
+    <!-- Header -->
+    <header class="top-header">
+
+      <div class="search-box">
+        <span>⌕</span>
+        <input type="text" id="searchInput" placeholder="Search for any task you want">
+      </div>
+
+      <div class="header-icons">
+
+        <button class="menu-btn" id="menuBtn" title="Menu">
+          ☰
+        </button>
+
+        <button class="profile-btn" id="profileBtn" title="Edit Profile">
+          👤
+        </button>
+
+        <div class=" menu-dropdown" id="menuDropdown">
+          <button id="menuProfile">Edit Profile</button>
+          <button id="signOutBtn">Sign Out</button>
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <section class="task-section">
+
+        <p class="greeting" id="greeting">
+          Good Evening, User
+        </p>
+
+        <div class="title-row">
+          <h1>
+            You've got <span id="todayCount">0</span> task today
+          </h1>
+
+          <button class="add-btn" onclick="openModal()">
+            + Add New
+          </button>
+        </div>
+
+        <!-- Pending Tasks -->
+        <div class="section-heading">
+          <h2>On Hold</h2>
+        </div>
+
+        <div id="pendingList"></div>
+
+        <!-- Completed Tasks -->
+        <div class="section-heading completed-heading">
+          <h2>Completed</h2>
+          <span class="inactive-label">Inactive</span>
+        </div>
+
+        <div id="completedList"></div>
+
+      </section>
+
+
+      <!-- Results Summary -->
+      <aside class="summary-section">
+
+        <h3>Results Summary</h3>
+
+        <div class="summary-card">
+          <p>Completion Rate</p>
+          <h2 id="completionRate">0%</h2>
+
+          <div class="progress-bar">
+            <div id="progressFill"></div>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <p>Total Tasks</p>
+          <h2 id="totalTasks">0</h2>
+
+          <div class="progress-bar">
+            <div id="totalFill"></div>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <p>Completed</p>
+          <h2 id="completedTasks">0</h2>
+        </div>
+
+        <div class="summary-card">
+          <p>Pending</p>
+          <h2 id="pendingTasks">0</h2>
+        </div>
+
+      </aside>
+
+    </main>
+
+  </div>
+
+
+  <!-- Add / Edit Task Modal -->
+
+  <div class="modal" id="taskModal">
+
+    <div class="modal-content">
+
+      <h2 id="modalTitle">Add New Task</h2>
+
+      <label for="taskName">Task Name</label>
+      <input type="text" id="taskName" placeholder="Enter your task">
+
+      <label for="taskPriority">Priority</label>
+      <select id="taskPriority">
+        <option value="Minor">Minor</option>
+        <option value="Normal" selected>Normal</option>
+        <option value="Critical">Critical</option>
+      </select>
+
+      <label for="taskDeadline">Deadline</label>
+      <input type="date" id="taskDeadline">
+
+      <div class="modal-buttons">
+
+        <button class="cancel-btn" onclick="closeModal()">
+          Cancel
+        </button>
+
+        <button class="save-btn" onclick="saveTask()">
+          Save Task
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
